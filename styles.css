@@ -1,0 +1,123 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #000000;
+}
+
+#container {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text {
+    position: absolute;
+    font-size: 20px;
+    color: #ff69b4;
+    font-weight: bold;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    animation: fadeIn 1s forwards, moveToHeart 4s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes moveToHeart {
+    from {
+        transform: translate(-50%, -50%) translate(0px, 0px);
+    }
+    to {
+        transform: translate(-50%, -50%) translate(var(--x), var(--y));
+    }
+}
+
+.shape-container {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1; 
+}
+
+.shape {
+    position: absolute;
+    opacity: 0;
+    animation: moveUp 5s linear forwards, fadeOut 5s linear forwards;
+    border: 1px solid #ffffff; 
+    background-color: transparent; 
+    transform: rotate(-45deg);
+}
+
+.square {
+    width: 100px;
+    height: 100px;
+}
+
+.kite {
+    width: 100px;
+    height: 100px;
+}
+
+@keyframes moveUp {
+    to {
+        transform: translateY(-100vh);
+    }
+}
+
+@keyframes fadeOut {
+    0%, 70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.music-player {
+    text-align: center;
+    color: #007BFF; 
+    cursor: pointer; 
+}
+
+.music-player i {
+    font-size: 70px; 
+    margin-right: 10px; 
+    margin-top: 10px; 
+}
+
+#song-duration {
+    font-size: 16px;
+    color: #333; 
+    margin-top: 5px; 
+}
+
+.own {
+   color :#007BFF;
+   position: fixed;
+   right: 0;
+   bottom: 0;
+   display: flex;
+   align-items: center;
+   padding: 10px;
+}
+
+.own h3 {
+    margin: 0;
+    margin-right: 5px;
+}
+
+.own i {
+    font-size: 24px;
+}
